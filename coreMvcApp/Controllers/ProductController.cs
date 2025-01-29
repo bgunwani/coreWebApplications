@@ -1,8 +1,10 @@
-﻿using coreMvcApp.Models;
+﻿using coreMvcApp.Filters;
+using coreMvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coreMvcApp.Controllers
 {
+    [AuthorizeUser]
     public class ProductController : Controller
     {
         static List<Product> products =
@@ -13,6 +15,7 @@ namespace coreMvcApp.Controllers
             new Product { Id = 4, Name = "Marshell Speaker", Price = 2000.50F },
         ];
 
+        
         public IActionResult Index()
         {
             ViewBag.Message = "Product Management System";
