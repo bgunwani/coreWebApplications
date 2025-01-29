@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace coreMvcApp.Controllers
 {
-    [AuthorizeUser]
+    //[AuthorizeUser]
+    [AuthorizeRole("Admin")]
     public class ProductController : Controller
     {
         static List<Product> products =

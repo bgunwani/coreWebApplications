@@ -22,7 +22,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav ms-auto">
-                       @if(HttpContextAccessor.HttpContext.Session.GetString("uname") != null)
+                       @if(HttpContextAccessor.HttpContext.Session.GetString("UserSession") != null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -32,6 +32,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link text-dark">
+                                    Welcome, @HttpContextAccessor.HttpContext.Session.GetString("UserSession")
+                                    (@HttpContextAccessor.HttpContext.Session.GetString("UserRole"))
+                                </span>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-danger text-white ms-2" asp-controller="Account" asp-action="logout">Logout</a>
