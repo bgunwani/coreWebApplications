@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <header>
+        <h2>My ASP.NET Core 8 MVC App</h2>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Index</a> |
+            <a asp-controller="Home" asp-action="Message">Message</a>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ABC Company</p>
+    </footer>
+
+
+</body>
+</html>
