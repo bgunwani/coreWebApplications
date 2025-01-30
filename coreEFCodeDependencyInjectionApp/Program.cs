@@ -1,12 +1,21 @@
+using coreEFCodeDependencyInjectionApp.Models;
 using coreEFCodeDependencyInjectionApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 // Register dependency in Ioc Container
 builder.Services.AddSingleton<IMessageService, MessageService>();
+
+
 
 var app = builder.Build();
 

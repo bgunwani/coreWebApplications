@@ -6,7 +6,12 @@ namespace coreEFCodeDependencyInjectionApp.Controllers
 {
     public class BookController : Controller
     {
-        private ApplicationDbContext _context = new ApplicationDbContext();
+        private ApplicationDbContext _context;
+
+        public BookController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
 
         // GET: BookController
@@ -59,7 +64,7 @@ namespace coreEFCodeDependencyInjectionApp.Controllers
         // POST: BookController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Book book)
         {
             try
             {
