@@ -23,6 +23,7 @@ namespace coreEFCodeDependencyInjectionApp.Controllers
         public IActionResult Index()
         {
             ViewBag.Message = _messageService.GetMessage();
+            ViewBag.Message1 = _messageService.GetMessage();
             return View();
         }
 
