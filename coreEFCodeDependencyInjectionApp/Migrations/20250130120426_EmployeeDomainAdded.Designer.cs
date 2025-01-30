@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using coreEFCodeDependencyInjectionApp.Models;
 
@@ -11,9 +12,11 @@ using coreEFCodeDependencyInjectionApp.Models;
 namespace coreEFCodeDependencyInjectionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250130120426_EmployeeDomainAdded")]
+    partial class EmployeeDomainAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,70 +98,6 @@ namespace coreEFCodeDependencyInjectionApp.Migrations
                     b.HasKey("EmpId");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("coreEFCodeDependencyInjectionApp.Models.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("coreEFCodeDependencyInjectionApp.Models.UserProfile", b =>
-                {
-                    b.Property<int>("UserProfileId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserProfileId"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserProfileId");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserProfile");
-                });
-
-            modelBuilder.Entity("coreEFCodeDependencyInjectionApp.Models.UserProfile", b =>
-                {
-                    b.HasOne("coreEFCodeDependencyInjectionApp.Models.User", "User")
-                        .WithOne("UserProfile")
-                        .HasForeignKey("coreEFCodeDependencyInjectionApp.Models.UserProfile", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("coreEFCodeDependencyInjectionApp.Models.User", b =>
-                {
-                    b.Navigation("UserProfile");
                 });
 #pragma warning restore 612, 618
         }
