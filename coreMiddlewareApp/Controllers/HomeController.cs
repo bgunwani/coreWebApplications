@@ -26,6 +26,11 @@ namespace coreMiddlewareApp.Controllers
             return View();
         }
 
+        public IActionResult TriggerError()
+        {
+            throw new Exception("THis is a test exception to check global error handling!");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

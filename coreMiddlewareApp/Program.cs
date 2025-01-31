@@ -15,7 +15,9 @@ if (!app.Environment.IsDevelopment())
 
 // Register the Custom Middleware to Request Pipeline
 // app.UseRequestLoggingMiddleware();
-// app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseStaticFiles();
 
