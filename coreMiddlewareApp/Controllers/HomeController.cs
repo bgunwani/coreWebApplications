@@ -1,3 +1,4 @@
+using coreMiddlewareApp.Filters;
 using coreMiddlewareApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -13,11 +14,13 @@ namespace coreMiddlewareApp.Controllers
             _logger = logger;
         }
 
+        [RequestLoggingFilter]
         public IActionResult Index()
         {
             return View();
         }
 
+        [RequestLoggingFilter]
         public IActionResult Privacy()
         {
             return View();
