@@ -1,31 +1,43 @@
-﻿using coreWebAPIVendorProject.Models;
+﻿using coreWebAPIVendorProject.Data;
+using coreWebAPIVendorProject.Models;
 
 namespace coreWebAPIVendorProject.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-
-        private static List<Product> _products = new List<Product>()
+        private ApplicationDbContext _context;
+        public ProductRepository(ApplicationDbContext context)
         {
-            new Product { Id = 1, Name = "Laptop", Price = 1200},
-            new Product { Id = 2, Name = "Phone", Price = 2200},
-            new Product { Id = 3, Name = "Keyboard", Price = 1000},
-        };
-        public void Add(Product product) => _products.Add(product);
+            _context = context;
+        }
 
-        public void Delete(int id) => _products.RemoveAll(p => p.Id == id);
+        public void Add(Product product)
+        {
+            _context.Products.Add(product);
+            _context.SaveChanges();
+        }
 
-        public List<Product> GetAll() => _products;
+        public void Delete(int id)
+        {
+            Product? product = _context.Products.FirstOrDefault(p => p.Id == id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
+        }
 
-        public Product? GetById(int id) => _products.FirstOrDefault(x => x.Id == id);
+        public List<Product> GetAll() => _context.Products.ToList();
+
+        public Product? GetById(int id) => _context.Products.FirstOrDefault(x => x.Id == id);
 
         public void Update(Product product)
         {
-            var existingProduct = _products.FirstOrDefault(p => p.Id == product.Id);
+            var existingProduct = _context.Products.FirstOrDefault(p => p.Id == product.Id);
             if (existingProduct != null)
             {
-                existingProduct.Name = product.Name;
-                existingProduct.Price = product.Price;
+                _context.Products.Update(existingProduct);
+                _context.SaveChanges();
             }
         }
     }
