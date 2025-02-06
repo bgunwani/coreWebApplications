@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreMvcApp", "coreMvcApp\co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreEFCodeDependencyInjectionApp", "coreEFCodeDependencyInjectionApp\coreEFCodeDependencyInjectionApp.csproj", "{DA95F302-E9AB-4CF3-B995-0C02EDF50182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coreMiddlewareApp", "coreMiddlewareApp\coreMiddlewareApp.csproj", "{353C46BF-D8C9-4841-87E0-F1B7D23F0543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreMiddlewareApp", "coreMiddlewareApp\coreMiddlewareApp.csproj", "{353C46BF-D8C9-4841-87E0-F1B7D23F0543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coreWebAPIVendorProject", "coreWebAPIVendorProject\coreWebAPIVendorProject.csproj", "{3E298971-28F0-48DF-8587-800EC87D9D2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{353C46BF-D8C9-4841-87E0-F1B7D23F0543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{353C46BF-D8C9-4841-87E0-F1B7D23F0543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353C46BF-D8C9-4841-87E0-F1B7D23F0543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E298971-28F0-48DF-8587-800EC87D9D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E298971-28F0-48DF-8587-800EC87D9D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E298971-28F0-48DF-8587-800EC87D9D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E298971-28F0-48DF-8587-800EC87D9D2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
